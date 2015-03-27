@@ -43,6 +43,36 @@
         $this->assertEquals("Puma", $result);
 
       }
+      function test_getId()
+    {
+      //Arrange
+      $type = "Prada";
+      $id = 1;
+      $test_brand = new Brand($type, $id);
+
+      //Act
+      $result = $test_brand->getId();
+
+      //Arrange
+      $this->assertEquals(1, $result);
+      }
+
+      function test_setId()
+      {
+
+        //Arrange
+        $type = "Prada";
+        $id = 4;
+        $test_brand = new Brand($type, $id);
+        $new_id = 6;
+
+        //Act
+        $test_brand->setId($new_id);
+        $result = $test_brand->getId();
+
+        //Assert
+        $this->assertEquals(6, $result);
+      }
 
     }
     ?>

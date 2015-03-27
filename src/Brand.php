@@ -20,6 +20,16 @@
       {
         $this->type = $new_type;
       }
+      
+      function getId()
+      {
+          return $this->id;
+      }
+
+      function setId($new_id)
+      {
+        $this->id = $new_id;
+      }
 
 
 
