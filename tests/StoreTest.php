@@ -62,25 +62,24 @@
 
         //Arrange
         $this->assertEquals(1, $result);
+        }
+
+        function test_setId()
+        {
+
+          //Arrange
+          $name = "Prada";
+          $id = 4;
+          $test_store = new Store($name, $id);
+          $new_id = 6;
+
+          //Act
+          $test_store->setId($new_id);
+          $result = $test_store->getId();
+
+          //Assert
+          $this->assertEquals(6, $result);
+        }
+
       }
-      //
-      // function test_setId()
-      // {
-      //   //Arrange
-      //   $name = "Prada";
-      //   $id = 2;
-      //   $test_store = new Store($name, $id);
-      //   $new_id = 4;
-      //
-      //   //Act
-      //   $test_store->setId($new_id);
-      //   $result = $test_store->getId();
-      //
-      //   //Arrange
-      //   $this->assertEquals(4, $result);
-      //
-      // }
-
-
-    }
 ?>

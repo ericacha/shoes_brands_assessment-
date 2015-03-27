@@ -28,11 +28,11 @@
       {
           return $this->id;
       }
-      //
-      // function setId($new_id)
-      // {
-      //   $this->id = $new_id;
-      // }
+
+      function setId($new_id)
+      {
+        $this->id = $new_id;
+      }
 
 
 
