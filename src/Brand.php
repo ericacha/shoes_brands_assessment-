@@ -39,6 +39,25 @@
 
       }
 
+  
+
+      static function findType($search_type)
+      {
+        $statement = $GLOBALS['DB']->query("SELECT * FROM brands WHERE type = '{$search_type}';");
+        $return_array = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $found_type = null;
+
+        foreach($return_array as $brands)
+        {
+          $type = $brands['type'];
+          $id = $brands['id'];
+          $found_type = new Brand($type, $id);
+
+        }
+        return $found_type;
+      }
+
+
       static function getAll()
       {
         $statement = $GLOBALS['DB']->query("SELECT * FROM brands;");

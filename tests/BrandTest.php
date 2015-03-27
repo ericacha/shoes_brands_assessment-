@@ -139,6 +139,32 @@
 
         }
 
+        function test_findType()
+        {
+          $type = "Gucci";
+          $id = 2;
+          $test_brand = new Brand($type, $id);
+          $test_brand->save();
+
+          $type1 = "Prada";
+          $id1 = 3;
+          $test_brand1 = new Brand($type1, $id1);
+          $test_brand1->save();
+
+          $type_search = "Prada";
+
+          //Act
+
+          $result = Brand::findType($type_search);
+
+          //Arrange
+          $this->assertEquals($test_brand1, $result);
+        }
+
+        
+
+
+
 
     }
     ?>
