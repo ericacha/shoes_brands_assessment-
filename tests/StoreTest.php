@@ -157,6 +157,28 @@
           $this->assertEquals("Gucci", $result);
         }
 
+        function test_findName()
+        {
+          $name = "Gucci";
+          $id = 2;
+          $test_store = new Store($name, $id);
+          $test_store->save();
+
+          $name1 = "Prada";
+          $id1 = 3;
+          $test_store1 = new Store($name1, $id1);
+          $test_store1->save();
+
+          $name_search = "Prada";
+
+          //Act
+
+          $result = Store::findName($name_search);
+
+          //Arrange
+          $this->assertEquals($test_store1, $result);
+        }
+
 
       }
 ?>
