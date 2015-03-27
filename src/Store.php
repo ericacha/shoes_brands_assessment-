@@ -34,7 +34,37 @@
         $this->id = $new_id;
       }
 
+      function save()
+      {
+        $statement = $GLOBALS['DB']->query("INSERT INTO stores(name) VALUES ('{$this->getName()}') RETURNING id;");
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $this->setId($result['id']);
 
+
+      }
+
+      static function getAll()
+      {
+        $statement = $GLOBALS['DB']->query("SELECT * FROM stores;");
+        $store_array = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $return_array = array();
+
+        foreach($store_array as $store)
+        {
+          $name = $store['name'];
+          $id = $store['id'];
+          $new_store = new Store($name,$id);
+          array_push($return_array, $new_store);
+
+        }
+        return $return_array;
+      }
+
+      static function deleteAll()
+      {
+        $GLOBALS['DB']->exec("DELETE FROM stores *;");
+      }
 
 
 
