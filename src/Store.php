@@ -23,11 +23,11 @@
       {
         $this->name = $new_name;
       }
-      //
-      // function getId()
-      // {
-      //     return $this->id;
-      // }
+
+      function getId()
+      {
+          return $this->id;
+      }
       //
       // function setId($new_id)
       // {

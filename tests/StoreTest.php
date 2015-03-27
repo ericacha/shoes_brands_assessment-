@@ -50,19 +50,19 @@
 
       }
 
-      //   function test_getId()
-      // {
-      //   //Arrange
-      //   $name = "Prada";
-      //   $id = 1;
-      //   $test_store = new Store($name, $id);
-      //
-      //   //Act
-      //   $result = $test_store->getId();
-      //
-      //   //Arrange
-      //   $this->assertEquals(1, $result);
-      // }
+        function test_getId()
+      {
+        //Arrange
+        $name = "Prada";
+        $id = 1;
+        $test_store = new Store($name, $id);
+
+        //Act
+        $result = $test_store->getId();
+
+        //Arrange
+        $this->assertEquals(1, $result);
+      }
       //
       // function test_setId()
       // {
