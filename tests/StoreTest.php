@@ -133,7 +133,7 @@
 
           //Act
           Store::deleteAll();
-          $result = $test_store->getAll();
+          $result = Store::getAll();
 
           //Assert
           $this->assertEquals([], $result);
@@ -191,7 +191,7 @@
           $test_store1 = new Store($name1, $id1);
           $test_store1->save();
 
-          $id_search = 3;
+
 
           //Act
           $result = Store::findId($test_store1->getId());
@@ -199,6 +199,22 @@
           //Arrange
           $this->assertEquals($test_store1, $result);
 
+        }
+
+        function test_singleDelete()
+        {
+          //Arrange
+          $name = "Gucci";
+          $id = 2;
+          $test_store = new Store($name, $id);
+          $test_store->save();
+
+          //Act
+          $test_store->singleDelete();
+          $result = Store::getAll();
+
+          //Assert
+          $this->assertEquals([$test_store], $result);
         }
 
 

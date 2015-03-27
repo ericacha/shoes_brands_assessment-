@@ -49,6 +49,11 @@
         $this->setName($new_name);
       }
 
+      function singleDelete()
+      {
+          $GLOBALS['DB']->exec("DELETE FROM stores WHERE id {$this->getId()};");
+      }
+
       static function findId($id_search)
       {
           $statement = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$id_search};");
