@@ -218,6 +218,61 @@
           $this->assertEquals([$test_store], $result);
         }
 
+        function test_addBrand()
+        {
+          //Arrange
+          $name = "Prada";
+          $id = 2;
+          $test_store = new Store($name, $id);
+          $test_store->save();
+
+          $type = "Gucci";
+          $id2 = 4;
+          $test_brand = new Brand($type,$id2);
+          $test_brand->save();
+
+          //Act
+          $test_store->addBrand($test_brand);
+          // $result = $test_store->getBrands();
+
+          //Assert
+          $this->assertEquals($test_store->getBrands(), [$test_brand]);
+          // $this->assertEquals($test_brand, $result[0]);
+        }
+
+        function test_getBrands()
+        {
+          //Arrange
+          $name = "Prada";
+          $id = 2;
+          $test_store = new Store($name, $id);
+          $test_store->save();
+
+          $type = "Gucci";
+          $id2 = 4;
+          $test_brand = new Brand($type, $id2);
+          $test_brand->save();
+
+          $type3 = "Hello";
+          $id3 = 4;
+          $test_brand3 = new Brand($type3,$id3);
+          $test_brand3->save();
+
+          //Act
+          $test_store->addBrand($type);
+          $test_store->addBrand($type3);
+          // $result = $test_store->getBrands();
+
+          //Assert
+          $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand3]);
+          // $this->assertEquals([$test_brand2,$test_brand3], $result[0]);
+        }
+
+
+
+
+
+
 
       }
 ?>

@@ -113,7 +113,7 @@
           $result = Brand::getAll();
 
           //Assert
-          $this->assertEquals([$test_brand], $result);
+          $this->assertEquals([$test_brand, $test_brand1], $result);
         }
 
 
