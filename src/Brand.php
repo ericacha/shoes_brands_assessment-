@@ -20,7 +20,7 @@
       {
         $this->type = $new_type;
       }
-      
+
       function getId()
       {
           return $this->id;
@@ -30,6 +30,38 @@
       {
         $this->id = $new_id;
       }
+
+      function save()
+      {
+        $statement = $GLOBALS['DB']->query("INSERT INTO brands (type) VALUES ('{$this->getType()}') RETURNING id;");
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $this->setId($result['id']);
+
+      }
+
+      static function getAll()
+      {
+        $statement = $GLOBALS['DB']->query("SELECT * FROM brands;");
+        $brand_array = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $return_array = array();
+
+        foreach($brand_array as $brand)
+        {
+          $type = $brand['type'];
+          $id = $brand['id'];
+          $new_brand = new Store($type,$id);
+          array_push($return_array, $new_brand);
+
+        }
+        return $return_array;
+      }
+
+      static function deleteAll()
+      {
+        $GLOBALS['DB']->exec("DELETE FROM brands *;");
+      }
+
 
 
 
