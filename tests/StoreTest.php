@@ -222,12 +222,10 @@
         {
           //Arrange
           $name = "Prada";
-          $id = 2;
           $test_store = new Store($name, $id);
           $test_store->save();
+          $brand = "Cool Shoes";
 
-          $type = "Gucci";
-          $id2 = 4;
           $test_brand = new Brand($type,$id2);
           $test_brand->save();
 
