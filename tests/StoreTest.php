@@ -118,7 +118,7 @@
 
         }
 
-        function deleteAll()
+        function test_deleteAll()
         {
           //Arrange
           $name = "Prada";
@@ -139,6 +139,24 @@
           $this->assertEquals([], $result);
 
         }
+
+        function test_updateName()
+        {
+          //Arrange
+          $name = "Coach";
+          $id = 1;
+          $test_store = new Store($name, $id);
+          $test_store->save();
+
+          //Act
+          $new_name = "Gucci";
+          $test_store->updateName($new_name);
+          $result = $test_store->getName();
+
+          //Assert
+          $this->assertEquals("Gucci", $result);
+        }
+
 
       }
 ?>

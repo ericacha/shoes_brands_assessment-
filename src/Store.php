@@ -43,6 +43,12 @@
 
       }
 
+      function updateName($new_name)
+      {
+        $GLOBALS['DB']->query("UPDATE stores SET name = '{$this->getName()}';");
+        $this->setName($new_name);
+      }
+
       static function getAll()
       {
         $statement = $GLOBALS['DB']->query("SELECT * FROM stores;");
@@ -65,6 +71,7 @@
       {
         $GLOBALS['DB']->exec("DELETE FROM stores *;");
       }
+
 
 
 
