@@ -179,6 +179,28 @@
           $this->assertEquals($test_store1, $result);
         }
 
+        function test_findId()
+        {
+          $name = "Payless";
+          $id = 2;
+          $test_store = new Store($name, $id);
+          $test_store->save();
+
+          $name1 = "Prada";
+          $id1 = 3;
+          $test_store1 = new Store($name1, $id1);
+          $test_store1->save();
+
+          $id_search = 3;
+
+          //Act
+          $result = Store::findId($test_store1->getId());
+
+          //Arrange
+          $this->assertEquals($test_store1, $result);
+
+        }
+
 
       }
 ?>

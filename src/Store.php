@@ -49,6 +49,23 @@
         $this->setName($new_name);
       }
 
+      static function findId($id_search)
+      {
+          $statement = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$id_search};");
+          $return_array = $statement->fetchAll(PDO::FETCH_ASSOC);
+          $found_id = null;
+
+          foreach($return_array as $ids)
+          {
+            $name = $ids['name'];
+            $id = $ids['id'];
+            $found_id = new Store($name, $id);
+
+          }
+          return $found_id;
+      }
+
+
       static function findName($search_name)
       {
         $statement = $GLOBALS['DB']->query("SELECT * FROM stores WHERE name = '{$search_name}';");
