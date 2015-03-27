@@ -39,6 +39,12 @@
 
       }
 
+      function updateType($new_type)
+      {
+        $GLOBALS['DB']->query("UPDATE brands SET type = '{$this->getType()}';");
+        $this->setType($new_type);
+      }
+
       static function findType($search_type)
       {
         $statement = $GLOBALS['DB']->query("SELECT * FROM brands WHERE type = '{$search_type}';");

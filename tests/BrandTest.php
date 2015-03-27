@@ -104,17 +104,16 @@
           $test_brand = new Brand($type, $id);
           $test_brand->save();
 
-          $type1 = "Puma";
-          $id1 = 3;
-          $test_brand1 = new Brand($type1, $id1);
+          $type1 = "Gucci";
+          $id1 = 4;
+          $test_brand1 = new Brand ($type1, $id1);
           $test_brand1->save();
-
 
           //Act
           $result = Brand::getAll();
 
           //Assert
-          $this->assertEquals([$test_brand, $test_brand1], $result);
+          $this->assertEquals([$test_brand], $result);
         }
 
 
@@ -163,6 +162,23 @@
 
           //Arrange
           $this->assertEquals($test_brand1, $result);
+        }
+
+        function test_updateType()
+        {
+          //Arrange
+          $type = "Coach";
+          $id = 1;
+          $test_brand = new Brand($type, $id);
+          $test_brand->save();
+
+          //Act
+          $new_type= "Gucci";
+          $test_brand->updateType($new_type);
+          $result = $test_brand->getType();
+
+          //Assert
+          $this->assertEquals("Gucci", $result);
         }
 
 
