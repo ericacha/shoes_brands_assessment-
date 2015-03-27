@@ -80,18 +80,35 @@
           $this->assertEquals(6, $result);
         }
 
-        function test_getAll()
+        function test_save()
         {
           //Arrange
-          $type = "Prada";
+          $type = "Puma";
           $id = 3;
           $test_brand = new Brand($type, $id);
           $test_brand->save();
 
-          $type1 = "Nike";
-          $id1 = 4;
+          //Act
+          $result = Brand::getAll();
+
+          //Assert
+          $this->assertEquals($test_brand, $result[0]);
+
+        }
+
+        function test_getAll()
+        {
+          //Arrange
+          $type = "Coach";
+          $id = 1;
+          $test_brand = new Brand($type, $id);
+          $test_brand->save();
+
+          $type1 = "Puma";
+          $id1 = 3;
           $test_brand1 = new Brand($type1, $id1);
           $test_brand1->save();
+
 
           //Act
           $result = Brand::getAll();
@@ -100,22 +117,9 @@
           $this->assertEquals([$test_brand, $test_brand1], $result);
         }
 
-        function test_save()
-        {
-          //Arrange
-          $type = "Louis Vutton";
-          $id = 1;
-          $test_brand = new Brand($type, $id);
-          $test_brand->save();
 
 
-          //Act
-          $result = Brand::getAll();
 
-          //Assert
-          $this->assertEquals([$test_brand], $result);
-
-        }
 
         function test_deleteAll()
         {
@@ -161,7 +165,7 @@
           $this->assertEquals($test_brand1, $result);
         }
 
-        
+
 
 
 

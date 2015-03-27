@@ -39,8 +39,6 @@
 
       }
 
-  
-
       static function findType($search_type)
       {
         $statement = $GLOBALS['DB']->query("SELECT * FROM brands WHERE type = '{$search_type}';");
