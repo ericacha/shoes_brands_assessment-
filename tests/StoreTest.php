@@ -32,6 +32,24 @@
         //Assert
         $this->assertEquals("Nike", $result);
       }
+
+      function test_setName()
+      {
+        //Arrange
+        $name = "Eddie Bauer";
+        $id = 1;
+        $test_store = new Store($name,$id);
+        $new_name = "Puma";
+
+        //Act
+        $test_store->setName($new_name);
+        $result = $test_store->getName();
+
+        //Assert
+        $this->assertEquals("Puma", $result);
+
+      }
+
       //   function test_getId()
       // {
       //   //Arrange

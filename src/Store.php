@@ -18,11 +18,11 @@
       {
         return $this->name;
       }
-      //
-      // function setName($new_name)
-      // {
-      //   $this->name = $new_name;
-      // }
+
+      function setName($new_name)
+      {
+        $this->name = $new_name;
+      }
       //
       // function getId()
       // {
