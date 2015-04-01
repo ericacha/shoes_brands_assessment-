@@ -5,7 +5,7 @@
       private $type;
       private $id;
 
-      function __construct($type, $id)
+      function __construct($type, $id = null)
       {
           $this->type = $type;
           $this->id = $id;
@@ -18,7 +18,7 @@
 
       function setType($new_type)
       {
-        $this->type = $new_type;
+        $this->type = (string) $new_type;
       }
 
       function getId()
@@ -28,15 +28,14 @@
 
       function setId($new_id)
       {
-        $this->id = $new_id;
+        $this->id = (int)$new_id;
       }
 
       function save()
       {
-        $statement = $GLOBALS['DB']->query("INSERT INTO brand (type) VALUES ('{$this->getType()}') RETURNING id;");
+        $statement = $GLOBALS['DB']->query("INSERT INTO brand(type) VALUES ('{$this->getType()}') RETURNING id;");
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         $this->setId($result['id']);
-
       }
 
       function updateType($new_type)
@@ -73,7 +72,7 @@
         {
           $type = $brand['type'];
           $id = $brand['id'];
-          $new_brand = new Store($type,$id);
+          $new_brand = new Brand($type,$id);
           array_push($return_array, $new_brand);
 
         }

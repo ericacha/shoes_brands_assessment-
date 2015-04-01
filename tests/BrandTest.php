@@ -6,7 +6,7 @@
       * @backupStaticAttributes disabled
       */
 
-      require_once "src/Store.php";
+      //require_once "src/Store.php";
       require_once "src/Brand.php";
 
       $DB = new PDO('pgsql:host=localhost;dbname=shoes_test');
@@ -83,16 +83,17 @@
       function test_save()
       {
         //Arrange
-        $type = "Puma";
-        $id = 3;
+        $type = "Louis Vutton";
+        $id = 1;
         $test_brand = new Brand($type, $id);
         $test_brand->save();
+
 
         //Act
         $result = Brand::getAll();
 
         //Assert
-        $this->assertEquals($test_brand, $result[0]);
+        $this->assertEquals([$test_brand], $result);
 
       }
 
@@ -100,13 +101,11 @@
       {
         //Arrange
         $type = "Coach";
-        $id = 1;
-        $test_brand = new Brand($type, $id);
+        $test_brand = new Brand($type);
         $test_brand->save();
 
         $type1 = "Gucci";
-        $id1 = 4;
-        $test_brand1 = new Brand ($type1, $id1);
+        $test_brand1 = new Brand ($type1);
         $test_brand1->save();
 
         //Act

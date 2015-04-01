@@ -260,11 +260,10 @@
           $test_store->addBrand($test_brand);
           $test_store->addBrand($test_brand3);
           $result = $test_store->getBrand();
-          // $result = $test_store->getBrands();
 
           //Assert
           $this->assertEquals([$test_brand, $test_brand3], $result);
-          // $this->assertEquals([$test_brand2,$test_brand3], $result[0]);
+
         }
 
 

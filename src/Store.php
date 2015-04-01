@@ -39,8 +39,6 @@
         $statement = $GLOBALS['DB']->query("INSERT INTO store(name) VALUES ('{$this->getName()}') RETURNING id;");
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         $this->setId($result['id']);
-
-
       }
 
       function updateName($new_name)
@@ -61,8 +59,6 @@
           $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$brand->getId()});");
         }
       }
-      //   $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$brand->getId()});");
-      // }
 
       function getBrand()
       {
