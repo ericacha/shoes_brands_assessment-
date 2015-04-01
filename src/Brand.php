@@ -33,7 +33,7 @@
 
       function save()
       {
-        $statement = $GLOBALS['DB']->query("INSERT INTO brands (type) VALUES ('{$this->getType()}') RETURNING id;");
+        $statement = $GLOBALS['DB']->query("INSERT INTO brand (type) VALUES ('{$this->getType()}') RETURNING id;");
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         $this->setId($result['id']);
 
@@ -41,13 +41,13 @@
 
       function updateType($new_type)
       {
-        $GLOBALS['DB']->query("UPDATE brands SET type = '{$this->getType()}';");
+        $GLOBALS['DB']->query("UPDATE brand SET type = '{$this->getType()}';");
         $this->setType($new_type);
       }
 
       static function findType($search_type)
       {
-        $statement = $GLOBALS['DB']->query("SELECT * FROM brands WHERE type = '{$search_type}';");
+        $statement = $GLOBALS['DB']->query("SELECT * FROM brand WHERE type = '{$search_type}';");
         $return_array = $statement->fetchAll(PDO::FETCH_ASSOC);
         $found_type = null;
 
@@ -64,7 +64,7 @@
 
       static function getAll()
       {
-        $statement = $GLOBALS['DB']->query("SELECT * FROM brands;");
+        $statement = $GLOBALS['DB']->query("SELECT * FROM brand;");
         $brand_array = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $return_array = array();
@@ -82,7 +82,7 @@
 
       static function deleteAll()
       {
-        $GLOBALS['DB']->exec("DELETE FROM brands *;");
+        $GLOBALS['DB']->exec("DELETE FROM brand *;");
       }
 
 

@@ -36,7 +36,7 @@
 
       function save()
       {
-        $statement = $GLOBALS['DB']->query("INSERT INTO stores(name) VALUES ('{$this->getName()}') RETURNING id;");
+        $statement = $GLOBALS['DB']->query("INSERT INTO store(name) VALUES ('{$this->getName()}') RETURNING id;");
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         $this->setId($result['id']);
 
@@ -45,23 +45,28 @@
 
       function updateName($new_name)
       {
-        $GLOBALS['DB']->query("UPDATE stores SET name = '{$this->getName()}';");
+        $GLOBALS['DB']->query("UPDATE store SET name = '{$this->getName()}';");
         $this->setName($new_name);
       }
 
       function singleDelete()
       {
-          $GLOBALS['DB']->exec("DELETE FROM stores WHERE id {$this->getId()};");
+          $GLOBALS['DB']->exec("DELETE FROM store WHERE id {$this->getId()};");
       }
 
       function addBrand($brand)
       {
-        $GLOBALS['DB']->exec("INSERT INTO stores_brands (stores_id, brands_id) VALUES ({$this->getId()}, {$brand->getId()});");
-      }
 
-      function getBrands()
+        if(!in_array($brand, $this->getBrand())){
+          $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$brand->getId()});");
+        }
+      }
+      //   $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$brand->getId()});");
+      // }
+
+      function getBrand()
       {
-        $query = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN stores_brands ON (stores_brands.stores_id = stores.id) JOIN brands ON (stores_brands.brands_id = brands.id) WHERE stores.id = {$this->getId()};");
+        $query = $GLOBALS['DB']->query("SELECT brand.* FROM store JOIN stores_brands ON (stores_brands.store_id = store.id) JOIN brand ON (stores_brands.brand_id = brand.id) WHERE store.id = {$this->getId()};");
         $query_fetch = $query->fetchAll(PDO::FETCH_ASSOC);
         $return_array = array();
 
@@ -69,7 +74,7 @@
         {
           $new_type = $brands['type'];
           $new_id = $brands['id'];
-          $new_brand = new Brand($new_name, $new_id);
+          $new_brand = new Brand($new_type, $new_id);
           array_push($return_array, $new_brand);
 
         }
@@ -78,7 +83,7 @@
 
       static function findId($id_search)
       {
-          $statement = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$id_search};");
+          $statement = $GLOBALS['DB']->query("SELECT * FROM store WHERE id = {$id_search};");
           $return_array = $statement->fetchAll(PDO::FETCH_ASSOC);
           $found_id = null;
 
@@ -95,14 +100,14 @@
 
       static function findName($search_name)
       {
-        $statement = $GLOBALS['DB']->query("SELECT * FROM stores WHERE name = '{$search_name}';");
+        $statement = $GLOBALS['DB']->query("SELECT * FROM store WHERE name = '{$search_name}';");
         $return_array = $statement->fetchAll(PDO::FETCH_ASSOC);
         $found_name = null;
 
-        foreach($return_array as $stores)
+        foreach($return_array as $store)
         {
-          $name = $stores['name'];
-          $id = $stores['id'];
+          $name = $store['name'];
+          $id = $store['id'];
           $found_name = new Store($name, $id);
 
         }
@@ -111,7 +116,7 @@
 
       static function getAll()
       {
-        $statement = $GLOBALS['DB']->query("SELECT * FROM stores;");
+        $statement = $GLOBALS['DB']->query("SELECT * FROM store;");
         $store_array = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $return_array = array();
@@ -129,7 +134,7 @@
 
       static function deleteAll()
       {
-        $GLOBALS['DB']->exec("DELETE FROM stores *;");
+        $GLOBALS['DB']->exec("DELETE FROM store *;");
       }
 
 

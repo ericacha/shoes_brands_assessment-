@@ -221,24 +221,24 @@
         function test_addBrand()
         {
           //Arrange
-          $name = "Prada";
-          $test_store = new Store($name, $id);
+          $type = "Puma";
+          $test_store = new Store($type);
           $test_store->save();
-          $brand = "Cool Shoes";
 
-          $test_brand = new Brand($type,$id2);
+          $name = "Prada";
+          $id = 3;
+          $test_brand = new Brand($name, $id);
           $test_brand->save();
 
           //Act
           $test_store->addBrand($test_brand);
-          // $result = $test_store->getBrands();
+          $result = $test_store->getBrand();
 
           //Assert
-          $this->assertEquals($test_store->getBrands(), [$test_brand]);
-          // $this->assertEquals($test_brand, $result[0]);
+          $this->assertEquals([$test_brand], $result);
         }
 
-        function test_getBrands()
+        function test_getBrand()
         {
           //Arrange
           $name = "Prada";
@@ -247,8 +247,8 @@
           $test_store->save();
 
           $type = "Gucci";
-          $id2 = 4;
-          $test_brand = new Brand($type, $id2);
+          $id = 4;
+          $test_brand = new Brand($type, $id);
           $test_brand->save();
 
           $type3 = "Hello";
@@ -257,12 +257,13 @@
           $test_brand3->save();
 
           //Act
-          $test_store->addBrand($type);
-          $test_store->addBrand($type3);
+          $test_store->addBrand($test_brand);
+          $test_store->addBrand($test_brand3);
+          $result = $test_store->getBrand();
           // $result = $test_store->getBrands();
 
           //Assert
-          $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand3]);
+          $this->assertEquals([$test_brand, $test_brand3], $result);
           // $this->assertEquals([$test_brand2,$test_brand3], $result[0]);
         }
 
