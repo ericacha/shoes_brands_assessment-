@@ -180,6 +180,29 @@
         $this->assertEquals("Gucci", $result);
       }
 
+      function test_findId()
+      {
+        $type = "Payless";
+        $id = 2;
+        $test_brand = new Brand($type, $id);
+        $test_brand->save();
+
+        $type1 = "Prada";
+        $id1 = 3;
+        $test_brand1 = new Brand($type1, $id1);
+        $test_brand1->save();
+
+
+
+        //Act
+        $result = Brand::findId($test_brand1->getId());
+
+        //Arrange
+        $this->assertEquals($test_brand1, $result);
+
+      }
+
+
 
 
 

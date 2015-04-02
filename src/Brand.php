@@ -59,6 +59,21 @@
         }
         return $found_type;
       }
+      static function findId($id_search)
+      {
+          $statement = $GLOBALS['DB']->query("SELECT * FROM brand WHERE id = {$id_search};");
+          $return_array = $statement->fetchAll(PDO::FETCH_ASSOC);
+          $found_id = null;
+
+          foreach($return_array as $ids)
+          {
+            $type = $ids['type'];
+            $id = $ids['id'];
+            $found_id = new Brand($type, $id);
+
+          }
+          return $found_id;
+      }
 
 
       static function getAll()

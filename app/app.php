@@ -31,11 +31,16 @@
       return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
-    //#4 this will continue  their list from the link to their individual page
+    //#4 this will  list shoe stores from the link to their individual page
     $app->get("/stores/{id}", function($id) use ($app) {
       $store = Store::findId($id);
       return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => $store->getBrand(),'all_brands' => Brand::getAll()));
     });
+
+    //#5 this will list shoe brands from the link to their individual page
+    $app->get("/brands/{id}", function($id) use ($app) {
+      $brand = Brand::findId($id);
+    })
 
 
 
