@@ -6,7 +6,7 @@
       * @backupStaticAttributes disabled
       */
 
-      //require_once "src/Store.php";
+      require_once "src/Store.php";
       require_once "src/Brand.php";
 
       $DB = new PDO('pgsql:host=localhost;dbname=shoes_test');
