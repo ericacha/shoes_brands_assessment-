@@ -40,7 +40,7 @@
     //#5 this will list shoe brands from the link to their individual page
     $app->get("/brands/{id}", function($id) use ($app) {
       $brand = Brand::findId($id);
-    })
+    });
 
 
 
