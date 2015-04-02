@@ -74,6 +74,23 @@
       return $app['twig']->render('index.html.twig');
     });
 
+    //this will add the store to the brand on brand.html.twig
+    $app->post("/add_stores", function() use ($app) {
+      $brand = Brand::findId($_POST['brand_id']);
+      $store = Store::findId($_POST['store_id']);
+      $brand->addStore($store);
+      return $app['twig']->render('brand.html.twig', array('brand' =>$brand, 'brands' => Brand::getAll(), 'stores' => $brand->getStore(), 'all_stores' => Store::getAll()));
+    });
+
+    //this will add the brand to the store on store.html.twig
+    $app->post("add_brands", function() use ($app) {
+      $brand = Brand::findId($_POST['brand_id']);
+      $store = Store::findId($_POST['store_id']);
+      $store->addBrand($brand);
+      return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'brands' => $store->getBrand(), 'all_brands' => Brand::getAll()));
+    });
+
+
 
 
 
