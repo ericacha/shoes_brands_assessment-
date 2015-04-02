@@ -9,7 +9,7 @@
       <p> Here are all your brands: </p>
       <ul>
         {% for brand in brands %}
-        <li><a href="/brands/{{ brand.getId() }}"> {{ brand.getType}} </a> </li>
+        <li><a href="/brands/{{ brand.getId }}"> {{ brand.getType}} </a> </li>
       {% endfor %}
     </ul>
     {% else %}
