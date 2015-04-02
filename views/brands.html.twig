@@ -9,16 +9,16 @@
       <p> Here are all your brands: </p>
       <ul>
         {% for brand in brands %}
-        <li><a href="/brands/{{ brand.getId }}"> {{ brand.getType}} </a> </li>
+        <li><a href="/brands/{{ brand.getId }}">{{ brand.getType }}</a> </li>
       {% endfor %}
     </ul>
     {% else %}
     <p> There are no brands listed</p>
     {% endif %}
 
-    <form action="/brands" method="post">
-        <label for ='type'> Brand Name:</label>
-        <input id = 'type' type ='type' type='text'>
+    <form action='/brands' method='post'>
+        <label for ='type'> Brand Name</label>
+        <input id = 'type' name ='type' type='text'>
 
         <button type='submit'> Add Brand</button>
 

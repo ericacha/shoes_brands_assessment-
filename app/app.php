@@ -31,15 +31,16 @@
       return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
-    //#4 this will  list shoe stores from the link to their individual page
+    //this will  list shoe stores from the link to their individual page for Store
     $app->get("/stores/{id}", function($id) use ($app) {
       $store = Store::findId($id);
       return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => $store->getBrand(),'all_brands' => Brand::getAll()));
     });
 
-    //#5 this will list shoe brands from the link to their individual page
+    //this will list shoe brands from the link to their individual page for Brand
     $app->get("/brands/{id}", function($id) use ($app) {
       $brand = Brand::findId($id);
+      return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => $brand->getStore(), 'all_stores' => Store::getAll()));
     });
 
 
@@ -47,19 +48,19 @@
 
     //POST
 
-    //#2 this is where the user gets to input what store name they want to add onto page
+    //#2 this is where the user gets to input what store name they want to add onto page for Store
     $app->post("/stores", function() use ($app) {
       $store = new Store($_POST['name']);
       $store->save();
       return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
-    //#3 this is where the user gets to input what brand name they want to add onto page
-    // $app->post("/brands", function() use ($app) {
-    //   $brand = new Brand($_POST['type']);
-    //   $brand->save();
-    //   return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
-    // });
+    //#3 this is where the user gets to input what brand name they want to add onto page for Brand
+    $app->post("/brands", function() use ($app) {
+      $brand = new Brand($_POST['type']);
+      $brand->save();
+      return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
+    });
 
     //this will delete the list of stores
     $app->post("/delete_stores", function() use ($app) {
