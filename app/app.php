@@ -43,6 +43,14 @@
       return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => $brand->getStore(), 'all_stores' => Store::getAll()));
     });
 
+    //this will route to a page to edit category
+    $app->get("/stores/{id}/edit", function($id) use ($app) {
+      $store = Store::findId($id);
+      return $app['twig']->render('store_edit.html.twig', array('store' => $store));
+    });
+
+
+
 
 
 
@@ -100,10 +108,7 @@
        return $app['twig']->render('brand.html.twig');
     });
 
-
-
-
-
+    
 
 
     return $app;
