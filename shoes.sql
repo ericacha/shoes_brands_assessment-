@@ -30,22 +30,22 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: brands; Type: TABLE; Schema: public; Owner: laujmimna; Tablespace: 
+-- Name: brand; Type: TABLE; Schema: public; Owner: laujmimna; Tablespace: 
 --
 
-CREATE TABLE brands (
+CREATE TABLE brand (
     id integer NOT NULL,
     type character varying
 );
 
 
-ALTER TABLE brands OWNER TO laujmimna;
+ALTER TABLE brand OWNER TO laujmimna;
 
 --
--- Name: brands_id_seq; Type: SEQUENCE; Schema: public; Owner: laujmimna
+-- Name: brand_id_seq; Type: SEQUENCE; Schema: public; Owner: laujmimna
 --
 
-CREATE SEQUENCE brands_id_seq
+CREATE SEQUENCE brand_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -53,26 +53,47 @@ CREATE SEQUENCE brands_id_seq
     CACHE 1;
 
 
-ALTER TABLE brands_id_seq OWNER TO laujmimna;
+ALTER TABLE brand_id_seq OWNER TO laujmimna;
 
 --
--- Name: brands_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: laujmimna
+-- Name: brand_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: laujmimna
 --
 
-ALTER SEQUENCE brands_id_seq OWNED BY brands.id;
+ALTER SEQUENCE brand_id_seq OWNED BY brand.id;
 
 
 --
--- Name: stores; Type: TABLE; Schema: public; Owner: laujmimna; Tablespace: 
+-- Name: store; Type: TABLE; Schema: public; Owner: laujmimna; Tablespace: 
 --
 
-CREATE TABLE stores (
+CREATE TABLE store (
     id integer NOT NULL,
     name character varying
 );
 
 
-ALTER TABLE stores OWNER TO laujmimna;
+ALTER TABLE store OWNER TO laujmimna;
+
+--
+-- Name: store_id_seq; Type: SEQUENCE; Schema: public; Owner: laujmimna
+--
+
+CREATE SEQUENCE store_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE store_id_seq OWNER TO laujmimna;
+
+--
+-- Name: store_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: laujmimna
+--
+
+ALTER SEQUENCE store_id_seq OWNED BY store.id;
+
 
 --
 -- Name: stores_brands; Type: TABLE; Schema: public; Owner: laujmimna; Tablespace: 
@@ -80,8 +101,8 @@ ALTER TABLE stores OWNER TO laujmimna;
 
 CREATE TABLE stores_brands (
     id integer NOT NULL,
-    stores_id integer,
-    brands_id integer
+    store_id integer,
+    brand_id integer
 );
 
 
@@ -109,38 +130,17 @@ ALTER SEQUENCE stores_brands_id_seq OWNED BY stores_brands.id;
 
 
 --
--- Name: stores_id_seq; Type: SEQUENCE; Schema: public; Owner: laujmimna
+-- Name: id; Type: DEFAULT; Schema: public; Owner: laujmimna
 --
 
-CREATE SEQUENCE stores_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE stores_id_seq OWNER TO laujmimna;
-
---
--- Name: stores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: laujmimna
---
-
-ALTER SEQUENCE stores_id_seq OWNED BY stores.id;
+ALTER TABLE ONLY brand ALTER COLUMN id SET DEFAULT nextval('brand_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: laujmimna
 --
 
-ALTER TABLE ONLY brands ALTER COLUMN id SET DEFAULT nextval('brands_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: laujmimna
---
-
-ALTER TABLE ONLY stores ALTER COLUMN id SET DEFAULT nextval('stores_id_seq'::regclass);
+ALTER TABLE ONLY store ALTER COLUMN id SET DEFAULT nextval('store_id_seq'::regclass);
 
 
 --
@@ -151,35 +151,143 @@ ALTER TABLE ONLY stores_brands ALTER COLUMN id SET DEFAULT nextval('stores_brand
 
 
 --
--- Data for Name: brands; Type: TABLE DATA; Schema: public; Owner: laujmimna
+-- Data for Name: brand; Type: TABLE DATA; Schema: public; Owner: laujmimna
 --
 
-COPY brands (id, type) FROM stdin;
-1	clear
+COPY brand (id, type) FROM stdin;
+1	
+2	
+3	
+4	
+5	
+6	
+7	
+8	
+9	
+10	
+11	
+12	
+13	
+14	
+15	
+16	
+17	
+18	
+19	
+20	
+21	
+22	
+23	
+24	
+25	
+26	
+27	
+28	gge
+29	gfdgd
+30	Coach
+31	
+32	cdsc
+33	kghkghgkj
+34	
+35	
 \.
 
 
 --
--- Name: brands_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
+-- Name: brand_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
 --
 
-SELECT pg_catalog.setval('brands_id_seq', 1, true);
+SELECT pg_catalog.setval('brand_id_seq', 35, true);
 
 
 --
--- Data for Name: stores; Type: TABLE DATA; Schema: public; Owner: laujmimna
+-- Data for Name: store; Type: TABLE DATA; Schema: public; Owner: laujmimna
 --
 
-COPY stores (id, name) FROM stdin;
-1	Prada
+COPY store (id, name) FROM stdin;
+1	Coach
+2	
+3	wetwt
+4	ggjgj
+5	
+6	
+7	
+8	
+9	
+10	fgfhdfh
+11	
+12	fsf
+13	
+14	
+15	fgjhfgj
+16	
+17	
+18	ere
+19	
+20	fghfghf
+21	Macys
+22	
+23	
+24	
+25	
+26	
+27	
+28	
+29	
+30	
+31	
+32	
+33	
+34	
+35	
+36	
+37	
+38	
+39	
+40	
+41	
+42	
+43	
+44	
+45	
 \.
+
+
+--
+-- Name: store_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
+--
+
+SELECT pg_catalog.setval('store_id_seq', 45, true);
 
 
 --
 -- Data for Name: stores_brands; Type: TABLE DATA; Schema: public; Owner: laujmimna
 --
 
-COPY stores_brands (id, stores_id, brands_id) FROM stdin;
+COPY stores_brands (id, store_id, brand_id) FROM stdin;
+1	1	28
+2	21	28
+3	21	30
+4	21	29
+5	32	3
+6	32	10
+7	32	1
+8	32	1
+9	32	1
+10	32	1
+11	32	1
+12	32	3
+13	32	10
+14	4	29
+15	1	30
+16	1	33
+17	1	33
+18	3	33
+19	4	30
+20	3	30
+21	1	29
+22	21	1
+23	10	33
 \.
 
 
@@ -187,22 +295,23 @@ COPY stores_brands (id, stores_id, brands_id) FROM stdin;
 -- Name: stores_brands_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
 --
 
-SELECT pg_catalog.setval('stores_brands_id_seq', 1, false);
+SELECT pg_catalog.setval('stores_brands_id_seq', 23, true);
 
 
 --
--- Name: stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
+-- Name: brand_pkey; Type: CONSTRAINT; Schema: public; Owner: laujmimna; Tablespace: 
 --
 
-SELECT pg_catalog.setval('stores_id_seq', 1, true);
+ALTER TABLE ONLY brand
+    ADD CONSTRAINT brand_pkey PRIMARY KEY (id);
 
 
 --
--- Name: brands_pkey; Type: CONSTRAINT; Schema: public; Owner: laujmimna; Tablespace: 
+-- Name: store_pkey; Type: CONSTRAINT; Schema: public; Owner: laujmimna; Tablespace: 
 --
 
-ALTER TABLE ONLY brands
-    ADD CONSTRAINT brands_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY store
+    ADD CONSTRAINT store_pkey PRIMARY KEY (id);
 
 
 --
@@ -211,14 +320,6 @@ ALTER TABLE ONLY brands
 
 ALTER TABLE ONLY stores_brands
     ADD CONSTRAINT stores_brands_pkey PRIMARY KEY (id);
-
-
---
--- Name: stores_pkey; Type: CONSTRAINT; Schema: public; Owner: laujmimna; Tablespace: 
---
-
-ALTER TABLE ONLY stores
-    ADD CONSTRAINT stores_pkey PRIMARY KEY (id);
 
 
 --

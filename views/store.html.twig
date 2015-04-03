@@ -7,13 +7,15 @@
     <h1>{{ store.getName }} </h1>
 
     {% if brands is not empty%}
-      <p> Here are the brands for this store:</p>
+      <p> Here are the brands this store sells:</p>
       <ul>
           {% for brand in brands %}
             <li> {{ brand.getType }} </li>
 
           {% endfor %}
       </ul>
+      {% else %}
+          <p> This store sells no brands</p>
 
       {% endif %}
 
