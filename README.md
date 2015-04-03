@@ -3,9 +3,9 @@ March 27th, 2015
 
 by Erica Cha
 
-A list of local shoe stores and the brands of shoes they carry.
-
-Technology
+A list of local shoe stores and the brands they carry. Allow user to input shoes and brands and also see what brands are sold at the store.
+------------------------------
+<h2>Technology</h2>
 <br>
 PHP<br>
 Silex<br>
@@ -14,8 +14,20 @@ PostgreSQL<br>
 PHPUnit<br>
 Test Driven Development<br>
 Composer<br>
+------------------------------
 
-License
+<h2>Setup instructions</h2>
+
+Clone this git repository
+Set your localhost root folder to ~/epifoodus/web/
+Ensure PHP server is running.
+Start Postgres and import epifoodus.sql database into a new database epifoodus
+Do the same for the test database: epifoodus_test.sql
+Use Composer to install required dependencies in the composer.json file
+Start the web app by pointing your browser to the root (http://localhost:8000/)
+
+------------------------------
+<h2>License</h2>
 
 The MIT License (MIT)
 
@@ -31,7 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -----------------------------
 
-PSQL commands :
+<h2>PSQL commands :</h2>
 
 You are now connected to database "laujmimna" as user "laujmimna".
 laujmimna=# DROP DATABASE shoes;
