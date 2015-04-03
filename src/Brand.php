@@ -44,6 +44,32 @@
         $this->setType($new_type);
       }
 
+      function addStore($store)
+      {
+
+        if(!in_array($store, $this->getStore())){
+          $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$store->getId()}, {$this->getId()});");
+        }
+      }
+
+
+      function getStore()
+      {
+        $query = $GLOBALS['DB']->query("SELECT store.* FROM brand JOIN stores_brands ON (stores_brands.brand_id = brand.id) JOIN store ON (stores_brands.store_id = store.id) WHERE brand.id = {$this->getId()};");
+        $query_fetch = $query->fetchAll(PDO::FETCH_ASSOC);
+        $return_array = array();
+
+        foreach ($query_fetch as $stores)
+        {
+          $new_name = $stores['name'];
+          $new_id = $stores['id'];
+          $new_store = new Store($new_name, $new_id);
+          array_push($return_array, $new_store);
+
+        }
+          return $return_array;
+        }
+
       static function findType($search_type)
       {
         $statement = $GLOBALS['DB']->query("SELECT * FROM brand WHERE type = '{$search_type}';");
