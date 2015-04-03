@@ -3,8 +3,7 @@ March 27th, 2015
 
 by Erica Cha
 
-A list of  out local shoe stores and the brands of shoes they carry. Allow user to create
-Brands and see what are sold at the store.
+A list of local shoe stores and the brands of shoes they carry.
 
 Technology
 <br>
