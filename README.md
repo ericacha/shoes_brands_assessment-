@@ -6,14 +6,14 @@ by Erica Cha
 A list of local shoe stores and the brands they carry. Allow user to input shoes and brands and also see what brands are sold at the store.
 ------------------------------
 <h2>Technology</h2>
-<br>
+
 PHP<br>
 Silex<br>
 Twig<br>
 PostgreSQL<br>
 PHPUnit<br>
 Test Driven Development<br>
-Composer<br>
+Composer
 ------------------------------
 
 <h2>Setup instructions</h2>
