@@ -3,8 +3,8 @@ March 27th, 2015
 
 by Erica Cha
 
-A list of  out local shoe stores and the brands of shoes they carry. Allow user to creat
-Brands. When a user is viewing a single store, list out all of the brands that have been added so far to that store and allow them to add a brand to that store.When a user is viewing a single brand, list out all of the stores that carry that brand and allow them to add a store to that brand.
+A list of  out local shoe stores and the brands of shoes they carry. Allow user to create
+Brands and see what are sold at the store. 
 
 Technology
 <br>

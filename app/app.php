@@ -120,8 +120,8 @@
 
     $app->delete("/stores/{id}", function($id) use ($app) {
       $store = Store::findId($id);
-      $store->deleteAll();
-      return $app['twig']->render('index.html.twig', array('stores' => Store::getAll()));
+      $store->singleDelete();
+      return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
     $app->patch("/updateStore/{id}", function($id) use ($app) {
@@ -132,9 +132,10 @@
 
     $app->delete("/deleteStore/{id}", function($id) use ($app) {
       $store = Store::findId($id);
-      $store->singeDelete($_POST['name']);
+      $store->singeDelete();
       return $app['twig']->render("stores.html.twig", array ('stores' => Store::getAll()));
     });
+
 
 
     return $app;
