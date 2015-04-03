@@ -50,10 +50,6 @@
     });
 
 
-
-
-
-
     //POST
 
     //#2 this is where the user gets to input what store name they want to add onto page for Store
@@ -108,7 +104,37 @@
        return $app['twig']->render('brand.html.twig');
     });
 
-    
+    //PATCH
+    //update and edit a particular link
+    $app->get("/stores/{id}/edit", function($id) use ($app) {
+      $store = Store::findId($id);
+      return $app['twig']->render('store_edit.html.twig', array('store' => $store));
+    });
+
+    $app->patch("/stores/{id}", function($id) use ($app) {
+      $name = $_POST['name'];
+      $store = Store::findId($id);
+      $store->updateName($name);
+      return $app['twig']->render('store_edit.html.twig', array('store' => $store, 'brand' => $store->getBrand()));
+    });
+
+    $app->delete("/stores/{id}", function($id) use ($app) {
+      $store = Store::findId($id);
+      $store->deleteAll();
+      return $app['twig']->render('index.html.twig', array('stores' => Store::getAll()));
+    });
+
+    $app->patch("/updateStore/{id}", function($id) use ($app) {
+      $store = Store::findId($id);
+      $store->updateName($_POST['name']);
+      return $app['twig']->render("store_edit.html.twig", array ('stores' => Store::getAll()));
+    });
+
+    $app->delete("/deleteStore/{id}", function($id) use ($app) {
+      $store = Store::findId($id);
+      $store->singeDelete($_POST['name']);
+      return $app['twig']->render("stores.html.twig", array ('stores' => Store::getAll()));
+    });
 
 
     return $app;
