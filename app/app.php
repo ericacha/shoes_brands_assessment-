@@ -90,19 +90,15 @@
       return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'brands' => $store->getBrand(), 'all_brands' => Brand::getAll()));
     });
 
-    // $app->post("/delete_stores", function() use ($app) {
-    //   Store::deleteAll();
-    //   return $app['twig']->render('delete_stores.twig');
-    // });
-    $app->post('/stores/delete', function() use ($app) {
-                Store::deleteAll();
-                return $app['twig']->render('stores.html.twig', array ('stores' => Store::getAll()));
-            });
-    $app->delete('/deleteStore/{id}', function($id) use ($app) {
-                        $store = Store::find($id);
-                        $store->delete();
-                        return $app['twig']->render("stores.html.twig", array ('stores' => Store::getAll()));
-                    });
+    $app->post("/delete_stores", function() use ($app) {
+       Store::deleteAll();
+       return $app['twig']->render('store.html.twig');
+    });
+
+    $app->post("/delete_brands", function() use ($app) {
+       Brand::deleteAll();
+       return $app['twig']->render('brand.html.twig');
+    });
 
 
 
