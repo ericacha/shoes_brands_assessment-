@@ -155,41 +155,7 @@ ALTER TABLE ONLY stores_brands ALTER COLUMN id SET DEFAULT nextval('stores_brand
 --
 
 COPY brand (id, type) FROM stdin;
-1	
-2	
-3	
-4	
-5	
-6	
-7	
-8	
-9	
-10	
-11	
-12	
-13	
-14	
-15	
-16	
-17	
-18	
-19	
-20	
-21	
-22	
-23	
-24	
-25	
-26	
-27	
-28	gge
-29	gfdgd
-30	Coach
-31	
-32	cdsc
-33	kghkghgkj
-34	
-35	
+56	sdgdsg
 \.
 
 
@@ -197,7 +163,7 @@ COPY brand (id, type) FROM stdin;
 -- Name: brand_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
 --
 
-SELECT pg_catalog.setval('brand_id_seq', 35, true);
+SELECT pg_catalog.setval('brand_id_seq', 56, true);
 
 
 --
@@ -205,51 +171,7 @@ SELECT pg_catalog.setval('brand_id_seq', 35, true);
 --
 
 COPY store (id, name) FROM stdin;
-1	Coach
-2	
-3	wetwt
-4	ggjgj
-5	
-6	
-7	
-8	
-9	
-10	fgfhdfh
-11	
-12	fsf
-13	
-14	
-15	fgjhfgj
-16	
-17	
-18	ere
-19	
-20	fghfghf
-21	Macys
-22	
-23	
-24	
-25	
-26	
-27	
-28	
-29	
-30	
-31	
-32	
-33	
-34	
-35	
-36	
-37	
-38	
-39	
-40	
-41	
-42	
-43	
-44	
-45	
+122	fgfdgdfhf
 \.
 
 
@@ -257,7 +179,7 @@ COPY store (id, name) FROM stdin;
 -- Name: store_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
 --
 
-SELECT pg_catalog.setval('store_id_seq', 45, true);
+SELECT pg_catalog.setval('store_id_seq', 122, true);
 
 
 --
@@ -288,6 +210,41 @@ COPY stores_brands (id, store_id, brand_id) FROM stdin;
 21	1	29
 22	21	1
 23	10	33
+24	1	1
+25	59	30
+26	70	40
+27	70	41
+28	71	40
+29	81	40
+30	81	41
+31	82	41
+32	83	40
+33	83	43
+34	88	45
+35	90	46
+36	94	48
+37	93	48
+38	93	47
+39	96	49
+40	97	49
+41	100	49
+42	102	49
+43	103	49
+44	104	49
+45	105	49
+46	108	49
+47	110	49
+48	113	49
+49	114	49
+50	115	49
+51	116	49
+52	117	49
+53	118	49
+54	119	49
+55	119	53
+56	120	56
+57	121	56
+58	122	56
 \.
 
 
@@ -295,7 +252,7 @@ COPY stores_brands (id, store_id, brand_id) FROM stdin;
 -- Name: stores_brands_id_seq; Type: SEQUENCE SET; Schema: public; Owner: laujmimna
 --
 
-SELECT pg_catalog.setval('stores_brands_id_seq', 23, true);
+SELECT pg_catalog.setval('stores_brands_id_seq', 58, true);
 
 
 --
