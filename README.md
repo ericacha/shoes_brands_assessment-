@@ -19,10 +19,10 @@ Composer
 <h2>Setup instructions</h2>
 
 Clone this git repository
-Set your localhost root folder to ~/epifoodus/web/
+Set your localhost root folder to ~/shoes_brands_assessments-/web/
 Ensure PHP server is running.
-Start Postgres and import epifoodus.sql database into a new database epifoodus
-Do the same for the test database: epifoodus_test.sql
+Start Postgres and import shoes.sql database into a new database shoes
+Do the same for the test database: shoes_test.sql
 Use Composer to install required dependencies in the composer.json file
 Start the web app by pointing your browser to the root (http://localhost:8000/)
 
