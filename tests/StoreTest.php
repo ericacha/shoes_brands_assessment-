@@ -153,10 +153,10 @@
           //Act
           $new_name = "Gucci";
           $test_store->updateName($new_name);
-          $result = $test_store->getName();
+          // $result = $test_store->getName();
 
           //Assert
-          $this->assertEquals("Gucci", $result);
+          $this->assertEquals("Gucci", $test_store->getName());
         }
 
         function test_findName()

@@ -43,7 +43,8 @@
 
         function updateName($new_name)
         {
-          $GLOBALS['DB']->query("UPDATE store SET name = '{$this->getName()}';");
+          $GLOBALS['DB']->exec("UPDATE store SET name = '{$new_name}'  WHERE id = {$this->getId()};");
+          // $GLOBALS['DB']->exec("UPDATE store SET name = '{$this->getName()}';");
           $this->setName($new_name);
         }
 
