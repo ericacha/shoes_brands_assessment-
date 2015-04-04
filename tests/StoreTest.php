@@ -23,50 +23,50 @@
 
       function test_getName()
       {
-        //Arrange
-        $name = "Nike";
-        $id = null;
-        $test_store = new Store($name, $id);
+          //Arrange
+          $name = "Nike";
+          $id = null;
+          $test_store = new Store($name, $id);
 
-        //Act
-        $result= $test_store->getName();
+          //Act
+          $result= $test_store->getName();
 
-        //Assert
-        $this->assertEquals("Nike", $result);
+          //Assert
+          $this->assertEquals("Nike", $result);
       }
 
       function test_setName()
       {
-        //Arrange
-        $name = "Eddie Bauer";
-        $id = 1;
-        $test_store = new Store($name,$id);
-        $new_name = "Puma";
+          //Arrange
+          $name = "Eddie Bauer";
+          $id = 1;
+          $test_store = new Store($name,$id);
+          $new_name = "Puma";
 
-        //Act
-        $test_store->setName($new_name);
-        $result = $test_store->getName();
+          //Act
+          $test_store->setName($new_name);
+          $result = $test_store->getName();
 
-        //Assert
-        $this->assertEquals("Puma", $result);
+          //Assert
+          $this->assertEquals("Puma", $result);
 
       }
 
-        function test_getId()
+      function test_getId()
       {
-        //Arrange
-        $name = "Prada";
-        $id = 1;
-        $test_store = new Store($name, $id);
+          //Arrange
+          $name = "Prada";
+          $id = 1;
+          $test_store = new Store($name, $id);
 
-        //Act
-        $result = $test_store->getId();
+          //Act
+          $result = $test_store->getId();
 
-        //Arrange
-        $this->assertEquals(1, $result);
+          //Arrange
+          $this->assertEquals(1, $result);
         }
 
-        function test_setId()
+      function test_setId()
         {
 
           //Arrange
@@ -83,7 +83,7 @@
           $this->assertEquals(6, $result);
         }
 
-        function test_getAll()
+      function test_getAll()
         {
           //Arrange
           $name = "Prada";
@@ -103,7 +103,7 @@
           $this->assertEquals([$test_store, $test_store1], $result);
         }
 
-        function test_save()
+      function test_save()
         {
           //Arrange
           $name = "Louis Vutton";
@@ -120,7 +120,7 @@
 
         }
 
-        function test_deleteAll()
+      function test_deleteAll()
         {
           //Arrange
           $name = "Prada";
@@ -142,7 +142,7 @@
 
         }
 
-        function test_updateName()
+      function test_updateName()
         {
           //Arrange
           $name = "Coach";
@@ -159,7 +159,7 @@
           $this->assertEquals("Gucci", $test_store->getName());
         }
 
-        function test_findName()
+      function test_findName()
         {
           $name = "Gucci";
           $id = 2;
@@ -181,7 +181,7 @@
           $this->assertEquals($test_store1, $result);
         }
 
-        function test_findId()
+      function test_findId()
         {
           $name = "Payless";
           $id = 2;
@@ -203,7 +203,7 @@
 
         }
 
-        function test_singleDelete()
+      function test_singleDelete()
         {
           //Arrange
           $name = "Gucci";
@@ -219,8 +219,8 @@
           $this->assertEquals([$test_store], $result);
         }
 
-        function test_addBrand()
-        {
+      function test_addBrand()
+      {
           //Arrange
           $type = "Puma";
           $test_store = new Store($type);
@@ -239,7 +239,7 @@
           $this->assertEquals([$test_brand], $result);
         }
 
-        function test_getBrand()
+      function test_getBrand()
         {
           //Arrange
           $name = "Prada";
@@ -267,7 +267,7 @@
 
         }
 
-        
+
 
 
 
