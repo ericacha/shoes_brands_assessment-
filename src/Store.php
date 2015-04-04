@@ -50,7 +50,7 @@
 
         function singleDelete()
         {
-            $GLOBALS['DB']->exec("DELETE FROM store WHERE id {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM store WHERE id = {$this->getId()};");
             $GLOBALS['DB']->exec("DELETE FROM brand WHERE store_id = {$this->getId()};");
         }
 

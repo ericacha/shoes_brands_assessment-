@@ -118,6 +118,7 @@
       return $app['twig']->render('store_edit.html.twig', array('store' => $store, 'brand' => $store->getBrand()));
     });
 
+
     $app->delete("/stores/{id}", function($id) use ($app) {
       $store = Store::findId($id);
       $store->singleDelete();
@@ -130,11 +131,7 @@
       return $app['twig']->render("store_edit.html.twig", array ('stores' => Store::getAll()));
     });
 
-    // $app->delete("/deleteStore/{id}", function($id) use ($app) {
-    //   $store = Store::findId($id);
-    //   $store->singeDelete();
-    //   return $app['twig']->render("stores.html.twig", array ('stores' => Store::getAll()));
-    // });
+
 
 
 

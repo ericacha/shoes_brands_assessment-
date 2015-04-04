@@ -18,13 +18,13 @@ Composer
 
 <h2>Setup instructions</h2>
 
-Clone this git repository
-Set your localhost root folder to ~/shoes_brands_assessments-/web/
-Ensure PHP server is running.
-Start Postgres and import shoes.sql database into a new database shoes
-Do the same for the test database: shoes_test.sql
-Use Composer to install required dependencies in the composer.json file
-Start the web app by pointing your browser to the root (http://localhost:8000/)
+Clone this git repository <br>
+Set your localhost root folder to ~/shoes_brands_assessments-/web/ <br>
+Ensure PHP server is running. <br>
+Start Postgres and import shoes.sql database into a new database shoes <br>
+Do the same for the test database: shoes_test.sql <br>
+Use Composer to install required dependencies in the composer.json file <br>
+Start the web app by pointing your browser to the root (http://localhost:8000/) <br>
 
 ------------------------------
 <h2>License</h2>

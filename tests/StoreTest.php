@@ -267,27 +267,7 @@
 
         }
 
-        function test_deleteStore()
-        {
-          //Arrange
-          $type = "LV";
-          $id = null;
-          $test_brand = new Brand($type, $id);
-          $test_brand->save();
-
-          $name = "Cute";
-          $store_id = $test_brand->getId();
-          $test_store = new Store($name, $id, $store_id);
-          $test_store->save();
-
-
-          //Act
-          $test_store->singleDelete();
-          $result = Store::getAll();
-
-          //Assert
-          $this->assertEquals([], $result);
-        }
+        
 
 
 
