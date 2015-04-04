@@ -13,7 +13,7 @@ Twig<br>
 PostgreSQL<br>
 PHPUnit<br>
 Test Driven Development<br>
-Composer
+Composer<br>
 ------------------------------
 
 <h2>Setup instructions</h2>
