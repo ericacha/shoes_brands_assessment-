@@ -12,8 +12,9 @@ Silex<br>
 Twig<br>
 PostgreSQL<br>
 PHPUnit<br>
-Test Driven Development<br>
 Composer<br>
+Test Driven Development<br>
+
 ------------------------------
 
 <h2>Setup instructions</h2>
