@@ -218,7 +218,7 @@
         $result = $test_brand->getStore();
 
         //Assert
-        $this->assertEquals([$test_brand], $result);
+        $this->assertEquals([$test_store], $result);
       }
 
       function test_getStore()
