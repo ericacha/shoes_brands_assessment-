@@ -1,7 +1,7 @@
 <h1>SHOES & BRANDS </h1>
 March 27th, 2015 by Erica Cha
 
-A list of local shoe stores and the brands they carry. Allow user to input shoes and brands and also see what brands 
+This app will allow the user to make a list of local shoe stores and brands. Will show which brands are available at what store. 
 
 <b>Technology</b>
 
