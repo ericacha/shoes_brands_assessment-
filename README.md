@@ -6,10 +6,10 @@ This app will allow the user to make a list of local shoe stores and brands. Wil
 <b>Technology</b>
 
 PHP<br>
-Silex<br>
-Twig<br>
+Silex ~1.1<br>
+Twig ~1.0<br>
 PostgreSQL<br>
-PHPUnit<br>
+PHPUnit 4.5 <br>
 Composer<br>
 Test Driven Development<br>
 
