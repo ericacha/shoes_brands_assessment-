@@ -1,11 +1,9 @@
 <h1>SHOES & BRANDS </h1>
-March 27th, 2015
+March 27th, 2015 by Erica Cha
 
-by Erica Cha
+A list of local shoe stores and the brands they carry. Allow user to input shoes and brands and also see what brands 
 
-A list of local shoe stores and the brands they carry. Allow user to input shoes and brands and also see what brands are sold at the store.
-------------------------------
-<h2>Technology</h2>
+<b>Technology</b>
 
 PHP<br>
 Silex<br>
@@ -15,9 +13,7 @@ PHPUnit<br>
 Composer<br>
 Test Driven Development<br>
 
-------------------------------
-
-<h2>Setup instructions</h2>
+<b>Setup instructions</b>
 
 Clone this git repository <br>
 Set your localhost root folder to ~/shoes_brands_assessments-/web/ <br>
@@ -44,7 +40,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -----------------------------
 
-<h2>PSQL commands :</h2>
+<b>PSQL commands :</b>
 
 You are now connected to database "laujmimna" as user "laujmimna".
 laujmimna=# DROP DATABASE shoes;
